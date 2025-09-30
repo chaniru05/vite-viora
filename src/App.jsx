@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import './App.css'
-import { Nav } from './components/nav'
+import Nav from './components/nav'
 
 
+function App() {
+  return (
+    <div>
+      <Nav /> 
+    </div>
+  );
+}
 
-
-export default App
+export default App;
