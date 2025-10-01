@@ -8,6 +8,7 @@ function App() {
     <div>
       <Nav />   {/* Render Navbar */}
       <Foot/>   {/*Render Footer*/}
+
     </div>
   );
 }
