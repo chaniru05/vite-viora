@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 import Nav from "./components/nav";
-import Foot from './components/footer';
+import Ud from './Pages/db/ud';
 
 function App() {
   return (
     <div>
       <Nav />   {/* Render Navbar */}
-      <Foot/>   {/*Render Footer*/}
-
+      <Ud />   {/* Render Navbar */}
     </div>
   );
 }
