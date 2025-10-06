@@ -41,6 +41,13 @@ const callouts = [
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
     href: '#',
   },
+  {
+    name: 'Event Matrerials',
+    description: 'From invites to memories we craft it all',
+    imageSrc: 'https://i.pinimg.com/1200x/10/48/75/104875a63c63ed3047d31c9beaa54b23.jpg',
+    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+    href: '#',
+  },
 ]
 
 export default function Example() {
