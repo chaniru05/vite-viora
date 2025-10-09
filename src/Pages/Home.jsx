@@ -31,32 +31,6 @@ function Hero() {
           />
         ))}
       </div>
-
-      {/* Couple Pre-shoot Animation */}
-      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-15 pointer-events-none">
-        <div className="relative">
-          {/* Couple Silhouette */}
-          <div className="couple-animation couple-glow relative">
-            <div className="w-32 h-40 bg-gradient-to-b from-amber-200 to-amber-300 rounded-full opacity-20 relative">
-              {/* Bride silhouette */}
-              <div className="absolute -top-2 -left-2 w-16 h-20 bg-gradient-to-b from-amber-100 to-amber-200 rounded-full"></div>
-              {/* Groom silhouette */}
-              <div className="absolute -top-2 -right-2 w-16 h-20 bg-gradient-to-b from-amber-200 to-amber-300 rounded-full"></div>
-            </div>
-          </div>
-          
-          {/* Floating Hearts */}
-          <div className="absolute -top-4 -left-4">
-            <div className="heart-float text-2xl">💕</div>
-          </div>
-          <div className="absolute -top-8 right-4">
-            <div className="heart-float text-xl">💖</div>
-          </div>
-          <div className="absolute -bottom-4 left-8">
-            <div className="heart-float text-lg">💝</div>
-          </div>
-        </div>
-      </div>
       
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
@@ -271,3 +245,5 @@ export default function Home() {
       <SuccessNumbers />
     </div>
   );
+}
+
