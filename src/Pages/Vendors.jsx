@@ -40,7 +40,7 @@ const callouts = [
     href: '#',
   },
   {
-    name: 'Cake & Bites',
+    name: 'Cake ',
     imageSrc: 'https://i.pinimg.com/1200x/fe/a6/84/fea684292356f85c89c07886b24307f8.jpg',
     href: '#',
   },
@@ -48,7 +48,7 @@ const callouts = [
 
 export default function Example() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gradient-to-r from-yellow-50 via-gold-200 to-orange-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-40 lg:max-w-none lg:py-48 text-center">
           
@@ -65,14 +65,14 @@ export default function Example() {
                   <img
                     alt={callout.name}
                     src={callout.imageSrc}
-                    className="w-full rounded-2xl object-cover max-sm:h-80 sm:aspect-2/1 lg:aspect-square transition-transform duration-500 ease-in-out group-hover:scale-110"
+                    className="w-full rounded-2xl object-cover max-sm:h-80 sm:aspect-2/1 lg:aspect-square transition-transform duration-500 ease-in-out group-hover:scale-110 "
                   />
                   
                   
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-90 rounded-2xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-90 rounded-2xl "></div>
 
                   
-                  <h3 className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-lg font-semibold text-white drop-shadow-md tracking-wide">
+                  <h3 className="absolute bottom-7 left-1/2 transform -translate-x-1/2 text-2xl font-semibold text-white drop-shadow-md tracking-wide ">
                     {callout.name}
                   </h3>
                 </div>
