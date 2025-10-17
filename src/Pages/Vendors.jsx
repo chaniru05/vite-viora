@@ -65,7 +65,7 @@ export default function Example() {
                   <img
                     alt={callout.name}
                     src={callout.imageSrc}
-                    className="w-full rounded-2xl object-cover max-sm:h-80 sm:aspect-2/1 lg:aspect-square transition-transform duration-500 ease-in-out group-hover:scale-110 "
+                    className="w-full h-100 rounded-2xl object-cover max-sm:h-80 sm:aspect-2/1 lg:aspect-square transition-transform duration-500 ease-in-out group-hover:scale-110 "
                   />
                   
                   
