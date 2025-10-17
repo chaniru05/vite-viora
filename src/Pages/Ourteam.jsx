@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const team = [
   {
@@ -29,6 +29,32 @@ const team = [
 ];
 
 export default function Ourteam() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const items = Array.from(container.querySelectorAll(".team-anim"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            // You can optionally unobserve after it's in view
+            // observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    items.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-yellow-50 py-20">
       <div className="max-w-5xl mx-auto px-4">
@@ -38,14 +64,18 @@ export default function Ourteam() {
             Passionate professionals dedicated to making your wedding magical.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
-          {team.map((member) => (
-            <div key={member.name} className="flex flex-col items-center">
+        <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
+          {team.map((member, idx) => (
+            <div
+              key={member.name}
+              className={`flex flex-col items-center team-anim ${idx < 3 ? "swipe-left" : "swipe-down"}`}
+              style={{ transitionDelay: `${idx * 0.15}s` }}
+            >
               <div className="p-2">
                 <img
                   src={member.photo}
                   alt={member.name}
-                  className="w-50 h-50 object-cover rounded-lg border-4 border-amber-200"
+                  className="w-32 h-32 object-cover rounded-lg border-4 border-amber-200"
                 />
               </div>
               <div className="mt-3 text-center">
