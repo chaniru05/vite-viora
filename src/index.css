@@ -1,0 +1,28 @@
+.scroll-float {
+  display: inline-block;
+  animation-timeline: scroll-float-timeline;
+  animation-range: entry 0% exit 80%;
+  white-space: nowrap;
+}
+
+.scroll-float span {
+  display: inline-block;
+  transform: translateY(40px);
+  opacity: 0;
+  animation: floatUp 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation-delay: calc(var(--i) * 0.05s);
+}
+
+/* Scroll timeline link */
+@scroll-timeline scroll-float-timeline {
+  source: auto;
+  orientation: block;
+}
+
+/* Float-up keyframes */
+@keyframes floatUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

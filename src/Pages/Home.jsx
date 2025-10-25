@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PlayIcon } from '@heroicons/react/24/solid';
+import CountUp from '../components/CountUp';
+import { CheckIcon } from '@heroicons/react/20/solid'
 
 // Hero Section Component
 function Hero() {
@@ -39,7 +41,7 @@ function Hero() {
               className={"absolute inset-0 bg-cover bg-center transition-opacity duration-2000 ease-linear"}
               style={{
                 backgroundImage: `url('${src}')`,
-                opacity: index === currentSlide ? 0.7 : 0
+                opacity: index === currentSlide ? 0.3 : 0
               }}
             />
           ))}
@@ -67,16 +69,12 @@ function Hero() {
         <div className="w-full flex items-center gap-8">
           {/* Left: hero content (half width) */}
           <div className="basis-1/2 shrink-0 grow-0 text-left">
-            <h1 className="hero-heading leading-[0.85] animate-fade-in-up relative" style={{ fontSize: 'clamp(48px, 14vw, 180px)' }}>
-              <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)]">
-                Your<br /> Dream<br />
+            <h1 className="hero-heading leading-[0.85] animate-fade-in-up relative bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.55)] contrast-100" style={{ fontSize: 'clamp(48px, 14vw, 180px)' }}>
+                Your Dream
                 Wedding
-              </span>
             </h1>
-            <div className="mt-4 relative inline-block animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-              <span className="text-4xl font-bold bg-gradient-to-r from-yellow-400 via-white to-yellow-700 bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.55)] contrast-125">Perfectly Planned</span>
-              <div className="absolute -inset-1 bg-gradient-to-r from-white/30 via-yellow-300/40 to-yellow-500/30 blur-md -z-10 rounded"></div>
-              <div className="absolute -inset-1 bg-black/10 blur-[2px] -z-20 rounded"></div>
+            <div className="mt-4 text-5xl relative inline-block animate-fade-in-up bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.55)] contrast-100" style={{animationDelay: '0.2s'}}>
+                Perfectly Planned
             </div>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-start">
               <button className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:from-yellow-600 hover:to-yellow-700 hover:shadow-lg hover-lift animate-fade-in-up" style={{animationDelay: '0.4s'}}>
@@ -99,7 +97,7 @@ function Hero() {
               <div className="absolute top-24 left-16 w-32 h-32 rounded-full bg-gradient-to-tr from-amber-300/40 to-transparent blur-xl"></div>
               <div className="absolute bottom-6 left-0 opacity-70">
                 <svg width="220" height="80" viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 60 C 40 10, 110 10, 150 50 S 210 90, 215 35" stroke="#d4af37" strokeWidth="2" fill="none" />
+                  <path d="M5 60 C 40 10, 110 10, 150 50 S 210 90, 215 35"  strokeWidth="2" fill="none" />
                 </svg>
               </div>
             </div>
@@ -126,23 +124,20 @@ function Challenge() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-transparent via-amber-50/80 to-amber-50 py-20">
+    <div className="bg-gradient-to-b from-amber-50 via-amber-100 to-amber-150 py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-10">
           <span className="inline-block text-xs font-semibold bg-amber-200 text-amber-900 px-3 py-1 rounded-full">Challenge</span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-extrabold text-[#c9a227] drop-shadow-[0_2px_2px_rgba(0,0,0,0.35)]">
+          <h2 className="mt-6 text-5xl md:text-5xl font-extrabold bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.55)] contrast-100">
             The Wedding Planning Challenge
           </h2>
-          <p className="mt-4 text-amber-600 max-w-3xl mx-auto">
-            Current solutions fall short of providing a truly integrated experience
-          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {problems.map((p, idx) => (
             <div key={idx} className="bg-white rounded-2xl shadow-md border border-amber-100 p-8">
               <div className="text-2xl mb-3">{p.emoji}</div>
-              <h3 className="text-2xl font-semibold text-amber-500 mb-3">{p.title}</h3>
-              <p className="text-amber-600 leading-relaxed">{p.desc}</p>
+              <h3 className="text-2xl font-semibold bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent mb-3">{p.title}</h3>
+              <p className="leading-relaxed bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent">{p.desc}</p>
             </div>
           ))}
         </div>
@@ -205,7 +200,7 @@ function Features() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-amber-50 via-amber-50 to-amber-100/60 py-24 relative overflow-hidden">
+    <div className="bg-gradient-to-b from-amber-150 via-amber-150 to-amber-50 py-24 relative overflow-hidden">
       {/* Star Dust Animation for Features */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(15)].map((_, i) => (
@@ -225,7 +220,7 @@ function Features() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <span className="inline-block mb-6 text-xs font-semibold bg-amber-200 text-amber-900 px-3 py-1 rounded-full">Solution</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#c9a227] drop-shadow-[0_2px_2px_rgba(0,0,0,0.35)]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.55)] contrast-100">
             Our Features
           </h2>
         </div>
@@ -233,10 +228,10 @@ function Features() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="card p-8 text-center hover-lift animate-fade-in-up" style={{animationDelay: `${0.2 + index * 0.1}s`}}>
-              <div className="text-amber-400 mb-4 flex justify-center animate-float">
+              <div className="mb-4 flex justify-center animate-float" style={{ color: '#C99738' }}>
                 {feature.icon}
               </div>
-              <h3 className="text-xl md:text-2xl font-semibold text-amber-500">
+              <h3 className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent">
                 {feature.name}
               </h3>
             </div>
@@ -247,104 +242,157 @@ function Features() {
   );
 }
 
+
+
+const tiers = [
+  {
+    name: '',
+    id: 'tier-hobby',
+    href: '#',
+    priceMonthly: 'Free',
+    description: "The perfect plan if you're just getting started with our product.",
+    features: ['AI Personalization', 'Curate Vendor Market Place', 'Smart Budget Planning', 'Task Assignments & Checklist Feature'],
+    featured: false,
+  },
+  {
+    name: '',
+    id: 'tier-enterprise',
+    href: '#',
+    priceMonthly: 'Rs 1500',
+    description: 'Craft your dream wedding with smart, stylish, and seamless planning tools.',
+    features: [
+      'AI Personalization',
+      'Curate Vendor Market Place',
+      'Smart Budget Planning',
+      'Task Assignments & Checklist Feature',
+      'Digital Invites, RSVP with Tracking, Guest Reminder, E‑Albums & Post‑Event Photo Album',
+      'Eco‑Friendly Mode',
+      'Cultural & Religious Templates',
+      'Thank You, Cards & QR Code Guest Check‑in & Custom Wedding Day Timeline',
+    ],
+    featured: true,
+  },
+]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 // Pricing Plans Section
+
 function PricingPlans() {
-  const basicFeatures = [
-    { label: 'Smart Budget Planning', enabled: true },
-    { label: 'Curate Vendor Market Place', enabled: true },
-    { label: 'AI Personalization', enabled: true },
-    { label: 'Task Assignments & Checklist Feature', enabled: false },
-    { label: 'Digital Invites, RSVP with Tracking, Guest Reminder, E‑Albums & Post‑Event Photo Album', enabled: false },
-    { label: 'Eco‑Friendly Mode', enabled: false },
-    { label: 'Cultural & Religious Templates', enabled: false },
-    { label: 'Thank You, Cards & QR Code Guest Check‑in & Custom Wedding Day Timeline', enabled: false }
-  ];
-
-  const premiumFeatures = [
-    { label: 'Smart Budget Planning', enabled: true },
-    { label: 'Curate Vendor Market Place', enabled: true },
-    { label: 'AI Personalization', enabled: true },
-    { label: 'Task Assignments & Checklist Feature', enabled: true },
-    { label: 'Digital Invites, RSVP with Tracking, Guest Reminder, E‑Albums & Post‑Event Photo Album', enabled: true },
-    { label: 'Eco‑Friendly Mode', enabled: true },
-    { label: 'Cultural & Religious Templates', enabled: true },
-    { label: 'Thank You, Cards & QR Code Guest Check‑in & Custom Wedding Day Timeline', enabled: true }
-  ];
-
-  const FeatureItem = ({ text, enabled }) => (
-    <li className={`flex items-start gap-2 ${enabled ? 'text-gray-800' : 'text-gray-400'}`}>
-      <span className={`mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full ${enabled ? 'bg-green-300' : 'bg-gray-300'}`}>
-        <svg viewBox="0 0 20 20" fill="white" className="h-3 w-3"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414l2.293 2.293 6.543-6.543a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-      </span>
-      <span className="leading-relaxed text-sm">{text}</span>
-    </li>
-  );
-
   return (
-    <div className="bg-gradient-to-b from-amber-100/60 via-amber-200/40 to-amber-300/30 py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-[#c9a227] drop-shadow-[0_2px_2px_rgba(0,0,0,0.35)]">Choose Your Plan</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Basic Plan */}
-          <div className="bg-white rounded-2xl shadow-md border border-amber-100 p-8">
-            <h3 className="text-2xl font-semibold text-gray-800 text-center mb-6">Basic Plan</h3>
-            <ul className="space-y-4">
-              {basicFeatures.map((f, i) => (
-                <FeatureItem key={i} text={f.label} enabled={f.enabled} />
+    <div className="relative isolate bg-gradient-to-b from-amber-50 to-amber-100 px-6 py-24 sm:py-32 lg:px-8">
+      <div aria-hidden="true" className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl">
+        <div
+          style={{
+            clipPath:
+              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+          }}
+          className="mx-auto aspect-1155/678 w-288.75  opacity-30"
+        />
+      </div>
+      <div className="mx-auto max-w-4xl text-center">
+        <span className="inline-block mb-6 text-xs font-semibold bg-amber-200 text-amber-900 px-3 py-1 rounded-full">pricing</span>
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.55)] contrast-100">
+            Perfect plan for you
+          </h2>
+      </div>
+      <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
+        {tiers.map((tier, tierIdx) => (
+          <div
+            key={tier.id}
+            className={classNames(
+              'relative bg-gradient-to-br from-[#A5782B] via-[#C99738] to-[#F4D362] shadow-2xl',
+              tierIdx === 0
+                ? 'rounded-t-3xl sm:rounded-b-none lg:rounded-tr-none lg:rounded-bl-3xl'
+                : 'sm:rounded-t-none lg:rounded-tr-3xl lg:rounded-bl-none',
+              'rounded-3xl p-8 ring-2 ring-[#C99738]/40 sm:p-10',
+              'transition-all duration-300 hover:scale-[1.025] hover:shadow-gold',
+              'overflow-hidden',
+            )}
+            style={{
+              boxShadow: '0 8px 32px 0 rgba(165,120,43,0.18), 0 1.5px 8px 0 rgba(249,213,98,0.12)',
+            }}
+          >
+            <h3
+              id={tier.id}
+              className="text-base/7 font-extrabold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.25)]"
+            >
+              {tier.name}
+            </h3>
+            <p className="mt-4 flex items-baseline gap-x-2">
+              <span className="text-5xl font-extrabold text-amber-50 drop-shadow-[0_2px_2px_rgba(0,0,0,0.25)]">
+                {tier.priceMonthly}
+              </span>
+              {tierIdx === 1 && (
+                <span className="text-base text-amber-50/80 font-semibold">/month</span>
+              )}
+            </p>
+            <p className="mt-6 text-base/7 text-white font-medium drop-shadow-[0_1px_1px_rgba(200,151,56,0.10)]">
+              {tier.description}
+            </p>
+            <ul
+              role="list"
+              className="mt-8 space-y-3 text-sm/6 sm:mt-10 text-white font-medium"
+            >
+              {tier.features.map((feature) => (
+                <li key={feature} className="flex gap-x-3">
+                  <CheckIcon
+                    aria-hidden="true"
+                    className="h-6 w-5 flex-none text-amber-50 drop-shadow-[0_1px_1px_rgba(200,151,56,0.15)]"
+                  />
+                  {feature}
+                </li>
               ))}
             </ul>
+            <button
+              type="button"
+              aria-describedby={tier.id}
+              className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:from-yellow-600 hover:to-yellow-700 hover:shadow-lg hover-lift animate-fade-in-up mt-8 block w-full text-center text-base sm:mt-10"
+              style={{ animationDelay: '0.4s' }}
+            >
+              Get started today
+            </button>
           </div>
-
-          {/* Premium Plan */}
-          <div className="bg-white rounded-2xl shadow-md border border-amber-100 p-8">
-            <div className="flex items-baseline justify-between mb-2">
-              <h3 className="text-2xl font-semibold text-gray-800">Premium Plan</h3>
-              <span className="text-gray-800 font-bold">LKR 5000.00</span>
-            </div>
-            <ul className="space-y-4">
-              {premiumFeatures.map((f, i) => (
-                <FeatureItem key={i} text={f.label} enabled={f.enabled} />
-              ))}
-            </ul>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  );
+  )
 }
+
 
 // Success in Numbers Section
 function SuccessNumbers() {
   const stats = [
-    { value: '20,000+', label: 'Happy Couples' },
-    { value: '100+', label: 'Vendors' },
-    { value: '500+', label: 'Successful Events' },
-    { value: '10+', label: 'Years of Experience' }
+    { value: 20000, label: 'Happy Couples', suffix: '+' },
+    { value: 100, label: 'Vendors', suffix: '+' },
+    { value: 500, label: 'Successful Events', suffix: '+' },
+    { value: 10, label: 'Years of Experience', suffix: '+' }
   ];
 
   return (
-    <div className="bg-gradient-to-b from-amber-300/30 via-amber-200/40 to-amber-300/30 py-24 -mt-px">
+    <div className="bg-gradient-to-b from-amber-100 via-amber-150 to-amber-200 py-24 -mt-px">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in-up text-[#c9a227] drop-shadow-[0_2px_2px_rgba(0,0,0,0.35)]">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in-up bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.55)] contrast-100">
             Our Success in Numbers
           </h2>
-          <p className="text-m text-amber-600 max-w-2xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-            These numbers represent our <br /> dedication, hard work, and the trust our clients place in us.
-          </p>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center animate-fade-in-up hover-lift" style={{animationDelay: `${0.4 + index * 0.1}s`}}>
-              <div className="relative">
-                <div className="text-4xl md:text-5xl font-bold text-amber-600 mb-2 drop-shadow-sm">
-                  {stat.value}
-                </div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-amber-200/20 to-amber-300/20 rounded-lg blur-sm -z-10"></div>
+            <div key={index} className="text-center animate-fade-in-up" style={{animationDelay: `${0.4 + index * 0.1}s`}}>
+              <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent">
+                <CountUp 
+                  to={stat.value} 
+                  duration={2.5}
+                  delay={0.5 + index * 0.2}
+                  suffix={stat.suffix}
+                  className="success-font"
+                />
               </div>
-              <div className="text-amber-700 font-semibold bg-white/30 px-3 py-1 rounded-full">
+              <div className="font-semibold text-lg bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent">
                 {stat.label}
               </div>
             </div>

@@ -240,73 +240,17 @@ p, span, div, a, button, input, label {
 
 .star-dust:nth-child(5n) {
   animation: star-dust 7s linear infinite;
-  background: linear-gradient(45deg, #d97706, #b45309);
+  background: linear-gradient(45deg, #dc7600, #b45309);
   width: 5px;
   height: 5px;
 }
 
-/* Couple Pre-shoot Animation */
-@keyframes couple-float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-10px) rotate(1deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(0deg);
-  }
-  75% {
-    transform: translateY(-15px) rotate(-1deg);
-  }
-}
-
-@keyframes couple-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(251, 191, 36, 0.6), 0 0 60px rgba(245, 158, 11, 0.4);
-  }
-}
-
-@keyframes heart-float {
-  0% {
-    transform: translateY(0px) scale(0.8);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(-20px) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-40px) scale(0.8);
-    opacity: 0;
-  }
-}
-
-.couple-animation {
-  animation: couple-float 6s ease-in-out infinite;
-}
-
-.couple-glow {
-  animation: couple-glow 4s ease-in-out infinite;
-}
-
-.heart-float {
-  animation: heart-float 3s ease-in-out infinite;
-}
-
-.heart-float:nth-child(2) {
-  animation-delay: 1s;
-}
-
-.heart-float:nth-child(3) {
-  animation-delay: 2s;
-}
 /*our success font styling*/
 .success-font {
   font-family: 'IM Fell English SC', serif !important;
   font-weight: 400;
   letter-spacing: 0.02em;
+  /* Ensure numerals use the serif font and proper figure style */
+  font-variant-numeric: oldstyle-nums tabular-nums;
+  font-feature-settings: "pnum" 1, "tnum" 1;
 }
