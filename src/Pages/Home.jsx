@@ -360,49 +360,6 @@ function PricingPlans() {
     </div>
   )
 }
-
-
-// Success in Numbers Section
-function SuccessNumbers() {
-  const stats = [
-    { value: 20000, label: 'Happy Couples', suffix: '+' },
-    { value: 100, label: 'Vendors', suffix: '+' },
-    { value: 500, label: 'Successful Events', suffix: '+' },
-    { value: 10, label: 'Years of Experience', suffix: '+' }
-  ];
-
-  return (
-    <div className="bg-gradient-to-b from-amber-100 via-amber-150 to-amber-200 py-24 -mt-px">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in-up bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.55)] contrast-100">
-            Our Success in Numbers
-          </h2>
-        </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center animate-fade-in-up" style={{animationDelay: `${0.4 + index * 0.1}s`}}>
-              <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent">
-                <CountUp 
-                  to={stat.value} 
-                  duration={2.5}
-                  delay={0.5 + index * 0.2}
-                  suffix={stat.suffix}
-                  className="success-font"
-                />
-              </div>
-              <div className="font-semibold text-lg bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // Main Home Component
 export default function Home() {
   return (
@@ -411,7 +368,6 @@ export default function Home() {
       <Challenge />
       <Features />
       <PricingPlans />
-      <SuccessNumbers />
     </div>
   );
 }
