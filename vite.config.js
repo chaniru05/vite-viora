@@ -5,5 +5,5 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(),tailwindcss()],
-  base: '/vite-viora/',
+  base: process.env.VITE_BASE_PATH || "/vite-viora/tree/main-copy"
 })
