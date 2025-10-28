@@ -17,7 +17,7 @@ export default function WeddingNavbar() {
   const [scrolled, setScrolled] = useState(false)
   const [activeTab, setActiveTab] = useState('Home')
 
-  const navItems = ['Home', 'Vendors', 'Dashboard', 'About Us']
+  const navItems = ['Home', 'Vendors', 'Gallery', 'Dashboard', 'About Us']
   
   // Custom Hook/Logic for Scroll-Based Active Tab (Scroll Spy)
   const handleScroll = useCallback(() => {
@@ -77,7 +77,7 @@ export default function WeddingNavbar() {
           >
             <img
               alt="Wedding Logo"
-              src="./src/assets/VioraLogo.png"
+              src="https://cdn-icons-png.flaticon.com/512/4225/4225932.png"
               className="h-10 w-10 transition-transform duration-500 group-hover:rotate-12"
             />
             <span
@@ -85,7 +85,7 @@ export default function WeddingNavbar() {
                 scrolled ? 'text-gold-900' : 'text-white drop-shadow-lg'
               } hover:text-gold`}
             >
-              VIORA
+              ForeverUs
             </span>
           </a>
         </div>
