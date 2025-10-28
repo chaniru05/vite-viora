@@ -3,7 +3,7 @@ import './App.css'
 import Nav from "./components/nav";
 import AboutUs from './Pages/AboutUs';
 import Testimonials from './Pages/Testimonials';
-import OurTeam from './Pages/OurTeam';
+import OurTeam from './Pages/Ourteam';
 import Foot from './components/footer';
 
 
