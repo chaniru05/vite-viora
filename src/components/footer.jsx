@@ -7,8 +7,8 @@ const ComponentName = () => {
         <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
             <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
                 <div className="flex items-center">
-                    <img className="w-auto h-9 mr-3" src="/src/assets/VioraLogo.jpg" alt="Viora Logo" />
-                    <span className="text-2xl font-bold text-gray-900">VIORA</span>
+                    <img className="w-auto h-9 mr-3" src="./src/assets/VioraLogo.png" alt="Viora Logo" />
+                    <span className="text-2x1 font-bold text-gray-900">VIORA</span>
                 </div>
 
                 <p className="text-base leading-relaxed text-gray-600 mt-7">
@@ -119,7 +119,7 @@ const ComponentName = () => {
                         <input type="email" name="email" id="email" placeholder="Enter your email" className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
                     </div>
 
-                    <button type="submit" className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-amber-800 rounded-md hover:bg-amber-900 focus:bg-amber-900 mx-auto">Subscribe</button>
+                    <button type="submit" className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-red-800 rounded-md hover:bg-red-700 focus:bg-red-700 mx-auto">Subscribe</button>
                 </form>
             </div>
         </div>
@@ -132,4 +132,4 @@ const ComponentName = () => {
 
     )
 }
-export default ComponentName;
+export default ComponentName
