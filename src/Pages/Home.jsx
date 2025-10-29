@@ -187,7 +187,7 @@ function Features() {
     },
     {
       tag: 'DIGITALIZATION',
-      title: 'Eco-Friendly Options',
+      title: 'Seamless Smart Planning',
       desc: 'Transforming traditional celebrations with smart, tech-driven planning, virtual experiences, and seamless online coordination.',
       img: '../home-assest/ECO.png'
     }
