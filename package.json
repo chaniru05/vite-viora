@@ -5,7 +5,9 @@
   "main": "eslint.config.js",
   "scripts": {
     "start": "node ud-web-set.js",
-    "dev": "nodemon ud-web-set.js"
+    "dev": "nodemon ud-web-set.js",
+    "build": "vite build",
+  "start": "vite preview"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
