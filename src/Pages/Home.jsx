@@ -116,13 +116,13 @@ function Challenge() {
       emoji: '😵',
       title: 'Fragmented Tools',
       desc: 'Couples juggle multiple platforms – venue walkthroughs, dress try‑ons, cake designers – with no integration between them.',
-      img: 'public/home-assest/FragmentedTools.png'
+      img: '../home-assest/FragmentedTools.png'
     },
     {
       emoji: '😬',
       title: 'Planning Anxiety',
       desc: 'Inability to visualize how all elements work together creates stress and leads to costly mistakes.',
-      img: 'public/home-assest/anxiety.jpeg'
+      img: '../home-assest/anxiety.jpeg'
     }
   ];
 
@@ -159,37 +159,37 @@ function Features() {
       tag: 'Guest Management',
       title: 'Your invitations',
       desc: 'Choose from hundreds of customizable designs in your style and budget. Make RSVPs easier with QR codes and a free matching website.',
-      img: 'public/home-assest/couple.jpg'
+      img: '../home-assest/couple.jpg'
     },
     {
       tag: 'SMART BUDGETING',
       title: 'Your budget and vision',
       desc: "Make the next steps easier! We'll help you gather inspo, find your wedding style, set up a budget",
-      img: 'public/home-assest/budget.jpg'
+      img: '../home-assest/budget.jpg'
     },
     {
       tag: 'PERSONALIZED RECOMMENDATIONS',
       title: 'AI & AR Assist',
       desc: 'Blending AI insight with AR visuals for instant, hands-on guidance.',
-      img: 'public/home-assest/Ai&Ar.png'
+      img: '../home-assest/Ai&Ar.png'
     },
     {
       tag: 'STAY ON TRACK',
       title: 'Task Management',
       desc: 'Keep everything on track with our smart checklist and task assignments. Never miss a deadline again!',
-      img: 'public/home-assest/track.png'
+      img: '../home-assest/track.png'
     },
     {
       tag: 'VENDOR MARKETPLACE',
       title: 'Verified vendor marketplace',
       desc: ' A trusted platform connecting you with pre-verified, reliable service providers.',
-      img: 'public/home-assest/Verified_Vendor.png'
+      img: '../home-assest/Verified_Vendor.png'
     },
     {
       tag: 'DIGITALIZATION',
       title: 'Eco-Friendly Options',
       desc: 'Transforming traditional celebrations with smart, tech-driven planning, virtual experiences, and seamless online coordination.',
-      img: 'public/home-assest/ECO.png'
+      img: '../home-assest/ECO.png'
     }
   ];
 
