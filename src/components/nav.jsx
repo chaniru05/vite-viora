@@ -86,7 +86,7 @@ export default function WeddingNavbar() {
             />
             <span
               className={`font-dancing text-2xl font-semibold transition-colors duration-500 ${
-                scrolled ? 'text-gold-900' : 'text-white drop-shadow-lg'
+                scrolled ? 'text-gold-900' : 'text-gold-900 drop-shadow-lg'
               } hover:text-gold`}
             >
               VIORA
@@ -125,7 +125,7 @@ export default function WeddingNavbar() {
                 relative px-3 py-2 rounded-lg font-medium transition-all duration-500 ease-out 
                 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gold 
                 // Color based on scroll
-                ${scrolled ? 'text-gray-800' : 'text-white drop-shadow-md'}
+                ${scrolled ? 'text-gray-800' : 'text-gray-800 drop-shadow-md'}
                 // Hover Effects: Color and background
                 hover:bg-gold/20 hover:text-black
                 // Active State: Enhanced visual feedback
@@ -150,7 +150,7 @@ export default function WeddingNavbar() {
               hover:shadow-[0_0_25px_rgba(255,215,0,0.8)] focus:outline-none focus:ring-4 focus:ring-gold/50
               ${scrolled
                 ? 'bg-black text-white hover:bg-gray-800'
-                : 'bg-white/20 text-white hover:bg-gold hover:text-black border-2 border-gold/50'
+                : 'bg-black text-white hover:bg-gold hover:text-white border-2 border-gold/50'
               }
             `}
           >
