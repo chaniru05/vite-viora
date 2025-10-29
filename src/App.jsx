@@ -5,6 +5,7 @@ import AboutUs from './Pages/AboutUs';
 import Testimonials from './Pages/Testimonials';
 import OurTeam from './Pages/Ourteam';
 import Foot from './components/footer';
+import Home from './Pages/Home';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <span className="petal cream"/>
       </div>
       <Nav />   {/* Render Navbar */}
+      <Home/>     { /*Render Home*/}
       <AboutUs/> {/*Render AboutUs*/}
       <Testimonials/> {/*Render Testimonials*/}
       <OurTeam/>  {/*Render Our Team*/}
