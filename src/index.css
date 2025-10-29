@@ -1,4 +1,21 @@
-/* Wedding vibe floating petals/hearts animation */
+/* Global fonts */
+:root {
+  --font-serif: 'Inria Serif', Georgia, 'Times New Roman', Times, serif;
+  --font-heading: 'Abril Fatface', cursive;
+}
+
+html, body, #root {
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Abril Fatface and bold weight */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
 .wedding-vibe-overlay {
   position: fixed;
   inset: 0;
