@@ -8,8 +8,8 @@ function App() {
   return (
     <div>
       <Nav />   {/* Render Navbar */}
-      <Foot/>   {/*Render Footer*/}
       <Vendors/>   {/*Render Vendors page*/}
+      <Foot/>   {/*Render Footer*/}
     </div>
   );
 }

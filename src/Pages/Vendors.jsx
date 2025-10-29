@@ -69,7 +69,7 @@ export default function Example() {
     <div className="bg-gradient-to-b from-cream-100  to-amber-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-40 lg:max-w-none lg:py-48 text-center">
-          <h2 className="text-7xl font-bold text-gray-900">Categories</h2>
+          <h2 className="text-7xl font-bold bg-gradient-to-r from-amber-500 via-amber-300 to-amber-200 text-transparent bg-clip-text pb-10">Categories</h2>
 
           <div className="mt-30 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-12">
             {callouts.map((callout) => (
