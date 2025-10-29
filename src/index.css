@@ -1,0 +1,22 @@
+/* Global styles and font setup */
+
+:root {
+  --font-sans: 'Inria Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Apply Inria Sans globally, including for elements that might use Tailwind utility classes */
+html, body, #root {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Provide a utility override that is specific and low-risk: */
+* {
+  font-family: var(--font-sans) !important;
+}
+
+/* Small helper for serif headings where you still want a serif — keep it optional */
+.font-serif-keep {
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+}

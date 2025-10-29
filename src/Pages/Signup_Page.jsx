@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaApple } from 'react-icons/fa';
 
-const SignInPage = () => {
+const Signup_Page = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -119,7 +119,7 @@ const SignInPage = () => {
 
             <button
               type="submit"
-              className="w-full py-3 px-4 bg-[#4A90E2] text-white rounded-full hover:bg-[#357ABD] transition-colors duration-200 text-lg font-medium"
+              className="w-full py-3 px-4 bg-gradient-to-r from-[#569CF8] to-[#325C92] text-white rounded-full hover:bg-[#357ABD] transition-colors duration-200 text-lg font-medium"
             >
               Sign Up
             </button>
@@ -135,7 +135,7 @@ const SignInPage = () => {
 
             <button
               type="button"
-              className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-full shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 mb-3"
+              className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-full shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-blue-200 mb-3"
             >
               <FcGoogle className="h-5 w-5 mr-2" />
               Sign up with Google
@@ -143,7 +143,7 @@ const SignInPage = () => {
 
             <button
               type="button"
-              className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-full shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+              className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-full shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-blue-200"
             >
               <FaApple className="h-5 w-5 mr-2" />
               Sign up with Apple
@@ -164,4 +164,5 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default Signup_Page;
+
