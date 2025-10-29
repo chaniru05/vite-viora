@@ -89,7 +89,7 @@ export default function WeddingNavbar() {
                 scrolled ? 'text-gold-900' : 'text-gold-900 drop-shadow-lg'
               } hover:text-gold`}
             >
-              VIORA
+              VIORAA
 
             </span>
           </a>
@@ -103,7 +103,7 @@ export default function WeddingNavbar() {
             className={`rounded-full p-2.5 transition-all duration-300 transform active:scale-90 ${
               scrolled
                 ? 'text-gray-700 hover:bg-gold/20 hover:text-gold'
-                : 'text-white hover:bg-gold/20 hover:text-gold'
+                : 'text-gray-700 hover:bg-gold/20 hover:text-gold'
             }`}
           >
             <Bars3Icon aria-hidden="true" className="h-6 w-6" />
@@ -169,10 +169,10 @@ export default function WeddingNavbar() {
             <a href="#" className="flex items-center gap-2 transform transition-transform duration-300 hover:scale-105">
               <img
                 alt="Logo"
-                src="https://cdn-icons-png.flaticon.com/512/4225/4225932.png"
+                src="/assets/VioraLogo.png"
                 className="h-8 w-8"
               />
-              <span className="font-dancing text-xl text-gold font-bold">ForeverUs</span>
+              <span className="font-dancing text-xl text-gold font-bold">VIORAA</span>
             </a>
             <button
               type="button"
