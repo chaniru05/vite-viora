@@ -57,6 +57,15 @@ const SigninPage = () => {
           </div>
         </form>
       </div>
+
+      {/* Right section - image */}
+      <div className="hidden md:flex w-full items-center justify-center">
+        <img
+          src="src/assets/couple.png"
+          alt="Couple kissing"
+          className="w-full h-full object-cover rounded-l-5xl"
+        />
+      </div>
     </div>
   )
 }
