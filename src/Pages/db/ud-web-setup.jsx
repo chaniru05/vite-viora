@@ -3,8 +3,57 @@ import {
   Bell, Mail, Users, CheckSquare, MapPin, Sparkles, Calendar, Camera, 
   Heart, Edit2, Send, MessageCircle, Home, LayoutDashboard, Settings, 
   LogOut, Menu, X, FileText, DollarSign, Gift, Music, Image, ChevronRight, 
-  Globe, Layout, Palette, Rocket, Check, ChevronLeft
+  Globe, Layout, Palette, Rocket, Check, ChevronLeft, Save, Loader
 } from 'lucide-react';
+
+// ============================================
+// API SERVICE
+// ============================================
+const API_URL = process.env.VITE_REACT_APP_API_URL || 'https://vite-viora-backend.onrender.com';
+
+const websiteAPI = {
+  create: async (data) => {
+    const response = await fetch(`${API_URL}/websites`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    return response.json();
+  },
+
+  getAll: async () => {
+    const response = await fetch(`${API_URL}/websites`);
+    return response.json();
+  },
+
+  getOne: async (id) => {
+    const response = await fetch(`${API_URL}/websites/${id}`);
+    return response.json();
+  },
+
+  update: async (id, data) => {
+    const response = await fetch(`${API_URL}/websites/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    return response.json();
+  },
+
+  delete: async (id) => {
+    const response = await fetch(`${API_URL}/websites/${id}`, {
+      method: 'DELETE'
+    });
+    return response.json();
+  },
+
+  launch: async (id) => {
+    const response = await fetch(`${API_URL}/websites/${id}/launch`, {
+      method: 'PATCH'
+    });
+    return response.json();
+  }
+};
 
 // ============================================
 // SIDEBAR COMPONENT
@@ -25,7 +74,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
   return (
     <>
-      {/* Sidebar Container */}
       <div
         className={`mt-20 fixed left-0 top-0 h-full bg-white shadow-2xl transition-all duration-300 ease-in-out z-50 ${
           isOpen ? 'w-64' : 'w-20'
@@ -33,7 +81,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
       >
-        {/* Logo Section */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           <div className="flex items-center space-x-3">
             <div className="bg-gradient-to-r from-pink-500 to-purple-500 p-2 rounded-lg">
@@ -47,7 +94,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           </div>
         </div>
 
-        {/* Menu Items */}
         <nav className="mt-6 px-2">
           {menuItems.map((item, index) => (
             <button
@@ -69,7 +115,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           ))}
         </nav>
 
-        {/* Logout Button */}
         <div className="absolute bottom-4 left-0 right-0 px-2">
           <button className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 transition-all duration-200">
             <LogOut className="w-5 h-5 flex-shrink-0" />
@@ -78,7 +123,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         </div>
       </div>
 
-      {/* Overlay for mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
@@ -90,11 +134,13 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 };
 
 // ============================================
-// web creation comnponent
+// WEBSITE CREATION DASHBOARD
 // ============================================
-
 const WebsiteCreationDashboard = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [savedWebsiteId, setSavedWebsiteId] = useState(null);
+  const [message, setMessage] = useState({ type: '', text: '' });
   const [formData, setFormData] = useState({
     projectName: '',
     websiteType: '',
@@ -174,8 +220,88 @@ const WebsiteCreationDashboard = () => {
     'Home', 'About', 'Services', 'Portfolio', 'Blog', 'Contact', 'FAQ', 'Pricing'
   ];
 
-  const handleNext = () => {
+  const showMessage = (type, text) => {
+    setMessage({ type, text });
+    setTimeout(() => setMessage({ type: '', text: '' }), 3000);
+  };
+
+  const handleSaveDraft = async () => {
+    setLoading(true);
+    try {
+      if (savedWebsiteId) {
+        const result = await websiteAPI.update(savedWebsiteId, formData);
+        if (result.success) {
+          showMessage('success', '✅ Draft saved successfully!');
+        } else {
+          showMessage('error', '❌ Error saving draft');
+        }
+      } else {
+        const result = await websiteAPI.create(formData);
+        if (result.success) {
+          setSavedWebsiteId(result.data._id);
+          showMessage('success', '✅ Draft saved successfully!');
+        } else {
+          showMessage('error', '❌ Error saving draft');
+        }
+      }
+    } catch (error) {
+      showMessage('error', '❌ Error: ' + error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleLaunchWebsite = async () => {
+    if (!formData.projectName || !formData.websiteType || !formData.template) {
+      showMessage('error', '❌ Please complete all required fields');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      let websiteId = savedWebsiteId;
+      
+      if (!websiteId) {
+        const result = await websiteAPI.create(formData);
+        if (result.success) {
+          websiteId = result.data._id;
+          setSavedWebsiteId(websiteId);
+        } else {
+          throw new Error('Failed to create website');
+        }
+      }
+
+      const launchResult = await websiteAPI.launch(websiteId);
+      if (launchResult.success) {
+        showMessage('success', '🎉 Website launched successfully!');
+        setTimeout(() => {
+          setFormData({
+            projectName: '',
+            websiteType: '',
+            template: '',
+            colorScheme: '',
+            pages: [],
+            features: [],
+            domain: ''
+          });
+          setSavedWebsiteId(null);
+          setCurrentStep(0);
+        }, 2000);
+      } else {
+        showMessage('error', '❌ Error launching website');
+      }
+    } catch (error) {
+      showMessage('error', '❌ Error: ' + error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleNext = async () => {
     if (currentStep < steps.length - 1) {
+      if (formData.projectName || savedWebsiteId) {
+        await handleSaveDraft();
+      }
       setCurrentStep(currentStep + 1);
     }
   };
@@ -206,7 +332,7 @@ const WebsiteCreationDashboard = () => {
           <div className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Project Name
+                Project Name *
               </label>
               <input
                 type="text"
@@ -392,27 +518,41 @@ const WebsiteCreationDashboard = () => {
               <div>
                 <p className="text-sm text-gray-500 mb-2">Pages ({formData.pages.length})</p>
                 <div className="flex flex-wrap gap-2">
-                  {formData.pages.map(page => (
+                  {formData.pages.length > 0 ? formData.pages.map(page => (
                     <span key={page} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
                       {page}
                     </span>
-                  ))}
+                  )) : <span className="text-gray-400 text-sm">No pages selected</span>}
                 </div>
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-2">Features ({formData.features.length})</p>
                 <div className="flex flex-wrap gap-2">
-                  {formData.features.map(feature => (
+                  {formData.features.length > 0 ? formData.features.map(feature => (
                     <span key={feature} className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
                       {feature}
                     </span>
-                  ))}
+                  )) : <span className="text-gray-400 text-sm">No features selected</span>}
                 </div>
               </div>
             </div>
 
-            <button className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all">
-              Launch Website
+            <button 
+              onClick={handleLaunchWebsite}
+              disabled={loading}
+              className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {loading ? (
+                <>
+                  <Loader className="w-5 h-5 animate-spin" />
+                  Launching...
+                </>
+              ) : (
+                <>
+                  <Rocket className="w-5 h-5" />
+                  Launch Website
+                </>
+              )}
             </button>
           </div>
         );
@@ -427,13 +567,20 @@ const WebsiteCreationDashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
+        {/* Message Alert */}
+        {message.text && (
+          <div className={`mb-4 p-4 rounded-lg ${
+            message.type === 'success' ? 'bg-green-100 text-green-700 border border-green-200' : 'bg-red-100 text-red-700 border border-red-200'
+          }`}>
+            {message.text}
+          </div>
+        )}
+
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">Create Your Website</h1>
           <p className="text-gray-600">Follow the steps below to build your perfect website</p>
         </div>
 
-        {/* Progress Steps */}
         <div className="mb-8 overflow-x-auto">
           <div className="flex items-center justify-between min-w-max md:min-w-0 px-4">
             {steps.map((step, index) => (
@@ -470,7 +617,6 @@ const WebsiteCreationDashboard = () => {
           </div>
         </div>
 
-        {/* Main Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
           <div className="mb-8">
             <div className="flex items-center gap-4 mb-4">
@@ -484,10 +630,8 @@ const WebsiteCreationDashboard = () => {
             </div>
           </div>
 
-          {/* Step Content */}
           <div className="mb-8">{renderStepContent()}</div>
 
-          {/* Navigation Buttons */}
           <div className="flex justify-between items-center pt-6 border-t border-gray-200">
             <button
               onClick={handlePrev}
@@ -501,9 +645,24 @@ const WebsiteCreationDashboard = () => {
               <ChevronLeft className="w-5 h-5" />
               Previous
             </button>
-            <div className="text-sm text-gray-500">
-              Step {currentStep + 1} of {steps.length}
+            
+            <div className="flex items-center gap-4">
+              <div className="text-sm text-gray-500">
+                Step {currentStep + 1} of {steps.length}
+              </div>
+              
+              {currentStep < steps.length - 1 && (
+                <button
+                  onClick={handleSaveDraft}
+                  disabled={loading}
+                  className="flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-all disabled:opacity-50"
+                >
+                  {loading ? <Loader className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
+                  Save Draft
+                </button>
+              )}
             </div>
+
             <button
               onClick={handleNext}
               disabled={currentStep === steps.length - 1}
@@ -531,23 +690,12 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex">
-      {/* Sidebar */}
       <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
       
-      {/* Main Content */}
-      <div className={` flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-20'}`}>
-
-        {/* Dashboard Content */}
+      <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-20'}`}>
         <main className="p-6">
           <div className="mt-15 max-w-7xl mx-auto">
-            {/* Budget Tracker */}
             <WebsiteCreationDashboard/>
-            
-            {/* Dashboard Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-             
-
-            </div>
           </div>
         </main>
       </div>
