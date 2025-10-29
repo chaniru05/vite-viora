@@ -80,7 +80,7 @@ export default function WeddingNavbar() {
             <img
               alt="Wedding Logo"
 
-              src="./src/assets/VioraLogo.png"
+              src="/assets/VioraLogo.png"
 
               className="h-10 w-10 transition-transform duration-500 group-hover:rotate-12"
             />

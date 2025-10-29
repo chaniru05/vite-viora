@@ -7,7 +7,7 @@ const ComponentName = () => {
         <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
             <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
                 <div className="flex items-center">
-                    <img className="w-auto h-9 mr-3" src="./src/assets/VioraLogo.png" alt="Viora Logo" />
+                    <img className="w-auto h-9 mr-3" src="/assets/VioraLogo.png" alt="Viora Logo" />
                     <span className="text-2x1 font-bold text-gray-900">VIORA</span>
                 </div>
 
