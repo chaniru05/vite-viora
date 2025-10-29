@@ -155,7 +155,7 @@ const Signup_Page = () => {
       {/* Right section - image */}
       <div className="hidden md:flex w-full items-center justify-center">
         <img
-          src="src/assets/couplekiss.png"
+          src="public/signuppage_assests/couplekiss.png"
           alt="Couple kissing"
           className="w-full h-full object-cover rounded-l-5xl"
         />
