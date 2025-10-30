@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Nav from "./components/nav";
-import Ud from './Pages/db/ud-web-setup';
+import Ud from './Pages/db/ud';
 
 function App() {
   return (

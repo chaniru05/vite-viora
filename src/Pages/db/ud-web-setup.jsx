@@ -61,8 +61,8 @@ const websiteAPI = {
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const menuItems = [
     { icon: Home, label: 'View Web Page', active: false },
-    { icon: LayoutDashboard, label: 'Overview', active: false },
-    { icon: Calendar, label: 'Web Settings', active: true },
+    { icon: LayoutDashboard, label: 'Overview', active: true },
+    { icon: Calendar, label: 'Web Settings', active: false },
     { icon: Users, label: 'Budget Plan', active: false },
     { icon: Mail, label: 'Digitalize', active: false },
     { icon: DollarSign, label: 'AI & AR Assist', active: false },
