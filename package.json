@@ -15,6 +15,8 @@
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.13",
+    "apexcharts": "^3.46.0",
+    "lucide-react": "^0.545.0",
     "gsap": "^3.13.0",
     "motion": "^12.23.24",
     "react": "^19.1.1",
