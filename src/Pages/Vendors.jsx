@@ -1,0 +1,115 @@
+import { useState } from "react";
+
+const callouts = [
+  {
+    name: "Ceremonial Arrangements",
+    imageSrc:
+      "https://i.pinimg.com/736x/41/21/9e/41219ebb4d82f08d22147174e4b5442c.jpg",
+    href: "#",
+  },
+  {
+    name: "Venues",
+    imageSrc:
+      "https://i.pinimg.com/1200x/66/45/6d/66456d2cdd8a8155bc6f6b3b8232407d.jpg",
+    href: "#",
+  },
+  {
+    name: "Beauty",
+    imageSrc:
+      "https://i.pinimg.com/736x/74/2c/f6/742cf697b05090af3f4a8b98a9b231b4.jpg",
+    href: "#",
+  },
+  {
+    name: "Accessories",
+    imageSrc:
+      "https://i.pinimg.com/1200x/e6/7b/38/e67b3893f6446b55ff53962b4e0caef7.jpg",
+    href: "#",
+  },
+  {
+    name: "Decorations",
+    imageSrc:
+      "https://i.pinimg.com/1200x/cb/0c/ff/cb0cff9b0cc98d514500c2562f5efefd.jpg",
+    href: "#",
+  },
+  {
+    name: "Music/Entertainment",
+    imageSrc:
+      "https://i.pinimg.com/736x/6e/47/57/6e4757abde35e5ac59e49050455bd70c.jpg",
+    href: "#",
+  },
+  {
+    name: "Event Materials",
+    imageSrc:
+      "https://i.pinimg.com/1200x/b2/59/58/b25958abcb720aa27f6806a28d86616e.jpg",
+    href: "#",
+  },
+  {
+    name: "Photography/Videography",
+    imageSrc:
+      "https://i.pinimg.com/736x/21/be/56/21be568c8cd14b7a58f5f3f4bc1d96e6.jpg",
+    href: "#",
+  },
+  {
+    name: "Cake",
+    imageSrc:
+      "https://i.pinimg.com/1200x/fe/a6/84/fea684292356f85c89c07886b24307f8.jpg",
+    href: "#",
+  },
+];
+
+export default function Example() {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  return (
+    <div className="bg-gradient-to-b from-cream-300 via-amber-200 to-amber-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl py-32 sm:py-40 lg:max-w-none lg:py-48 text-center">
+<h2 className=" mt-6 text-8xl md:text-9xl font-extrabold bg-gradient-to-r from-amber-500 via-amber-300 to-amber-100 bg-clip-text text-transparent pb-10">
+            Categories
+          </h2>
+          <p className="mt-2 text-2xl bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent ">
+  "Discover the Perfect Touch for Your Special Day"
+</p>
+          <div className="mt- space-y-8 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-12">
+            {callouts.map((callout) => (
+              <a
+                key={callout.name}
+                href={callout.href}
+                onMouseMove={handleMouseMove}
+                className="mt-1 group relative block transform transition-transform duration-300 ease-in-out hover:scale-105"
+              >
+                <div className="mt-15 relative rounded-2xl overflow-hidden transition-all duration-500 group-hover:shadow-[0_0_25px_rgba(255,192,203,0.6)]">
+                  <img
+                    alt={callout.name}
+                    src={callout.imageSrc}
+                    className="w-full h-115 rounded-2xl object-cover max-sm:h-80 sm:aspect-2/1 lg:aspect-square transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  />
+
+                  
+                  <div
+                    className="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                    style={{
+                      background: `radial-gradient(circle 200px at ${pos.x}px ${pos.y}px, rgba(255,255,255,0.35), transparent 80%)`,
+                    }}
+                  ></div>
+
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-2xl"></div>
+
+                  <h3 className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-2xl font-semibold text-white drop-shadow-md tracking-wide">
+                    {callout.name}
+                  </h3>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -6,6 +6,7 @@ import Foot from './components/footer';
 
 import Home from './Pages/Home';
 import AboutUs from './Pages/AboutUs';
+import Vendors from './Pages/Vendors';
 
 
 // ✅ Optional future pages
@@ -37,6 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/vendors" element={<Vendors />} />
         {/* Optional future routes */}
         {/* <Route path="/vendors" element={<Vendors />} /> */}
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
