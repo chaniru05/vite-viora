@@ -7,6 +7,7 @@ import Foot from './components/footer';
 import Home from './Pages/Home';
 import AboutUs from './Pages/AboutUs';
 import Vendors from './Pages/Vendors';
+import Dashboard from './Pages/db/ud-overview';
 
 
 // ✅ Optional future pages
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/vendors" element={<Vendors />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         {/* Optional future routes */}
         {/* <Route path="/vendors" element={<Vendors />} /> */}
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
