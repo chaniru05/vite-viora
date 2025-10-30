@@ -42,8 +42,7 @@ export default function Ourteam() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("in-view");
-            // You can optionally unobserve after it's in view
-            // observer.unobserve(entry.target);
+            
           }
         });
       },
