@@ -66,14 +66,14 @@ export default function Example() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-cream-100  to-amber-100">
+    <div className="bg-gradient-to-b from-cream-300 via-amber-200 to-amber-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-40 lg:max-w-none lg:py-48 text-center">
-<h2 className=" mt-6 text-7xl md:text-7xl font-extrabold bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent pb-10">
-            Catergories
+<h2 className=" mt-6 text-8xl md:text-9xl font-extrabold bg-gradient-to-r from-amber-500 via-amber-300 to-amber-100 bg-clip-text text-transparent pb-10">
+            Categories
           </h2>
-          <p className="mt-2 text-lg bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent ">
-  "Discover <br></br>the Perfect Touch <br></br>for Your Special Day"
+          <p className="mt-2 text-2xl bg-gradient-to-r from-[#A5782B] via-[#C99738] to-[#F4D362] bg-clip-text text-transparent ">
+  "Discover the Perfect Touch for Your Special Day"
 </p>
           <div className="mt- space-y-8 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-12">
             {callouts.map((callout) => (
