@@ -1,0 +1,127 @@
+.scroll-float {
+  display: inline-block;
+  animation-timeline: scroll-float-timeline;
+  animation-range: entry 0% exit 80%;
+  white-space: nowrap;
+}
+
+.scroll-float span {
+  display: inline-block;
+  transform: translateY(40px);
+  opacity: 0;
+  animation: floatUp 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation-delay: calc(var(--i) * 0.05s);
+}
+
+/* Scroll timeline link */
+@scroll-timeline scroll-float-timeline {
+  source: auto;
+  orientation: block;
+}
+
+/* Float-up keyframes */
+@keyframes floatUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* Wedding vibe floating petals/hearts animation */
+.wedding-vibe-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5; /* below nav overlays but above background */
+}
+
+.wedding-vibe-overlay .petal {
+  position: absolute;
+  top: -10vh;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #ff9eb3 0%, #ff6a85 60%, #ff3b64 100%);
+  border-radius: 100% 0 100% 0;
+  transform: rotate(45deg);
+  opacity: 0.8;
+  filter: blur(0.2px);
+  animation: petal-fall linear infinite;
+}
+
+/* Duplicate shape for variety */
+.wedding-vibe-overlay .petal.cream {
+  background: radial-gradient(circle at 30% 30%, #ffd8a8 0%, #ffc078 60%, #ffa94d 100%);
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg) scale(1) rotate(45deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.9; }
+  50% {
+    transform: translate3d(-20px, 50vh, 0) rotate(120deg) scale(0.95) rotate(45deg);
+  }
+  100% {
+    transform: translate3d(20px, 110vh, 0) rotate(360deg) scale(0.9) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Different sizes, positions, durations */
+.wedding-vibe-overlay .petal:nth-child(1)  { left: 8%;  animation-duration: 11s; animation-delay: 0s; }
+.wedding-vibe-overlay .petal:nth-child(2)  { left: 18%; animation-duration: 13s; animation-delay: 2s; }
+.wedding-vibe-overlay .petal:nth-child(3)  { left: 28%; animation-duration: 12s; animation-delay: 1s; }
+.wedding-vibe-overlay .petal:nth-child(4)  { left: 38%; animation-duration: 15s; animation-delay: 3s; }
+.wedding-vibe-overlay .petal:nth-child(5)  { left: 48%; animation-duration: 13.5s; animation-delay: 0.5s; }
+.wedding-vibe-overlay .petal:nth-child(6)  { left: 58%; animation-duration: 12.5s; animation-delay: 1.8s; }
+.wedding-vibe-overlay .petal:nth-child(7)  { left: 68%; animation-duration: 14s; animation-delay: 0.3s; }
+.wedding-vibe-overlay .petal:nth-child(8)  { left: 78%; animation-duration: 16s; animation-delay: 2.4s; }
+.wedding-vibe-overlay .petal:nth-child(9)  { left: 88%; animation-duration: 12.8s; animation-delay: 1.2s; }
+.wedding-vibe-overlay .petal:nth-child(10) { left: 95%; animation-duration: 15.5s; animation-delay: 3.2s; }
+
+/* Subtle 3D + shine for cards */
+.tilt-wrap {
+  perspective: 800px;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  position: relative;
+}
+
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.0) 30%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.0) 70%);
+  opacity: 0;
+  transform: translate3d(-100%,0,30px) skewX(-15deg);
+  transition: opacity .4s ease, transform .6s ease;
+  pointer-events: none;
+  border-radius: 1rem;
+}
+
+.tilt-wrap:hover .tilt-card::after {
+  opacity: 1;
+  transform: translate3d(120%,0,30px) skewX(-15deg);
+}
+
+
+/* =========================
+   Team grid scroll animations
+   ========================= */
+@keyframes team-swipe-left {
+  0% { opacity: 0; transform: translateX(60px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes team-swipe-down {
+  0% { opacity: 0; transform: translateY(-60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.team-anim { opacity: 0; will-change: transform, opacity; }
+.team-anim.in-view.swipe-left { animation: team-swipe-left 700ms ease-out forwards; }
+.team-anim.in-view.swipe-down { animation: team-swipe-down 700ms ease-out forwards; }
+

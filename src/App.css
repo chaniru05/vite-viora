@@ -1,2 +1,256 @@
 @import "tailwindcss";
 
+/* Global font family - using system fonts by default */
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom animations for moving rectangles */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) translateX(4px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-4px) translateX(8px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-12px) translateX(2px) rotate(270deg);
+  }
+}
+
+@keyframes float-slow-reverse {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(6px) translateX(-3px) rotate(-90deg);
+  }
+  50% {
+    transform: translateY(3px) translateX(-6px) rotate(-180deg);
+  }
+  75% {
+    transform: translateY(9px) translateX(-1px) rotate(-270deg);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Apply animations */
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-slow-reverse {
+  animation: float-slow-reverse 8s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-amber-500 text-amber-900 px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply bg-amber-600 shadow-lg;
+}
+
+.btn-secondary {
+  @apply border-2 border-amber-800 text-amber-800 px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+}
+
+.btn-secondary:hover {
+  @apply bg-amber-800 text-white;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-xl shadow-md border border-amber-100;
+}
+
+/* Typography */
+.heading-1 {
+  @apply text-5xl md:text-6xl lg:text-7xl text-amber-900 leading-tight;
+  font-family: 'IM Fell English SC', serif;
+  font-weight: 400;
+}
+
+.heading-2 {
+  @apply text-3xl md:text-4xl lg:text-5xl text-amber-900 mb-6;
+  font-family: 'IM Fell English SC', serif;
+  font-weight: 400;
+}
+
+.heading-3 {
+  @apply text-xl md:text-2xl text-amber-900;
+  font-family: 'IM Fell English SC', serif;
+  font-weight: 400;
+}
+
+.text-large {
+  @apply text-xl md:text-2xl text-amber-700;
+  font-family: 'IM Fell English SC', serif;
+  font-weight: 300;
+}
+
+/* Button text styling */
+.btn-primary, .btn-secondary {
+  font-family: 'IM Fell English SC', serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation styling - using default system fonts */
+nav a, nav button {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+/* Footer styling - using default system fonts */
+footer, footer p, footer a, footer button, footer input {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+}
+
+/* General text styling - using system fonts */
+p, span, div, a, button, input, label {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Hero heading specific styling */
+.hero-heading {
+  font-family: 'IM Fell English SC', serif !important;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Star dust animation */
+@keyframes star-dust {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes star-dust-reverse {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80px) translateX(-15px) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Star dust elements */
+.star-dust {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+  border-radius: 50%;
+  animation: star-dust 4s linear infinite;
+}
+
+.star-dust:nth-child(2n) {
+  animation: star-dust-reverse 5s linear infinite;
+  background: linear-gradient(45deg, #fde047, #facc15, #eab308);
+}
+
+.star-dust:nth-child(3n) {
+  animation: star-dust 6s linear infinite;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  width: 3px;
+  height: 3px;
+}
+
+.star-dust:nth-child(4n) {
+  animation: star-twinkle 3s ease-in-out infinite;
+  background: linear-gradient(45deg, #fde047, #fbbf24);
+  width: 2px;
+  height: 2px;
+}
+
+.star-dust:nth-child(5n) {
+  animation: star-dust 7s linear infinite;
+  background: linear-gradient(45deg, #dc7600, #b45309);
+  width: 5px;
+  height: 5px;
+}
+
+/*our success font styling*/
+.success-font {
+  font-family: 'IM Fell English SC', serif !important;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  /* Ensure numerals use the serif font and proper figure style */
+  font-variant-numeric: oldstyle-nums tabular-nums;
+  font-feature-settings: "pnum" 1, "tnum" 1;
+}
