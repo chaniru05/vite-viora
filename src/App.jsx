@@ -3,6 +3,7 @@ import './App.css';
 
 import Nav from './components/nav';
 import Foot from './components/footer';
+import Vendors from './Pages/Vendors';
 
 import Home from './Pages/Home';
 import AboutUs from './Pages/AboutUs';
