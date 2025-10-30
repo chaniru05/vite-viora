@@ -226,7 +226,7 @@ const tiers = [
     href: '#',
     priceMonthly: 'Free',
     description: "The perfect plan if you're just getting started with our product.",
-    features: ['AI Personalization', 'Curate Vendor Market Place', 'Smart Budget Planning', 'Task Assignments & Checklist Feature'],
+    features: ['Budget planner', 'Vendor marketplace with ratings & portfolios', 'Website Personalization', 'Advanced AI & AR driven customization for personalization experiences'],
     featured: false,
   },
   {
@@ -236,14 +236,14 @@ const tiers = [
     priceMonthly: 'Rs 1500',
     description: 'Craft your dream wedding with smart, stylish, and seamless planning tools.',
     features: [
-      'AI Personalization',
-      'Curate Vendor Market Place',
-      'Smart Budget Planning',
-      'Task Assignments & Checklist Feature',
-      'Digital Invites, RSVP with Tracking, Guest Reminder, E‑Albums & Post‑Event Photo Album',
-      'Eco‑Friendly Mode',
-      'Cultural & Religious Templates',
-      'Thank You, Cards & QR Code Guest Check‑in & Custom Wedding Day Timeline',
+      'Budget planner',
+      'Vendor marketplace with ratings & portfolios',
+      'Website Personalization',
+      'Advanced AI & AR driven customization for personalization experiences',
+      'Task assignments & auto checklists',
+      'Guest list & seating planner (AI-assisted)',
+      'Digital invites & RSVP tracking',
+      'E-albums & guest uploads',
     ],
     featured: true,
   },
@@ -335,6 +335,8 @@ function PricingPlans() {
     </div>
   )
 }
+
+
 // Main Home Component
 export default function Home() {
   return (
