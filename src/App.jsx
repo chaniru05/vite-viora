@@ -9,12 +9,14 @@ import AboutUs from './Pages/AboutUs';
 import Vendors from './Pages/Vendors';
 import Dashboard from './Pages/db/ud-overview';
 import Dashboardb from './Pages/db/ud-budget';
+import Webset from './pages/db/ud-web-Setup';
 
 
 // Wrap Routes in a separate component so we can use useLocation
 function AppContent() {
   const location = useLocation();
-  const hideFooter = location.pathname.startsWith('/dashboard'); // 👈 hides footer on dashboard
+  const hideFooter = location.pathname.startsWith('/dashboard','/webset');
+  const hideFooterr = location.pathname.startsWith('/webset'); // 👈 hides footer on dashboard
 
   return (
     <>
@@ -42,11 +44,13 @@ function AppContent() {
         <Route path="/vendors" element={<Vendors />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboardb" element={<Dashboardb />} />
+        <Route path="/webset" element={<Webset />} />
         <Route path="*" element={<Home />} />
       </Routes>
 
       {/* 👇 Footer hidden only on dashboard */}
       {!hideFooter && <Foot />}
+      {!hideFooterr && <Foot />}
     </>
   );
 }
