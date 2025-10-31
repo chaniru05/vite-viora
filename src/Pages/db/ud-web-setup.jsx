@@ -115,10 +115,10 @@ const WebsiteCreationDashboard = ({ onLaunch }) => {
   ];
 
   const websiteTypes = [
-    { id: 'business', name: 'Business', desc: 'Corporate or company website' },
-    { id: 'portfolio', name: 'Portfolio', desc: 'Showcase your work' },
-    { id: 'blog', name: 'Blog', desc: 'Share your thoughts and stories' },
-    { id: 'ecommerce', name: 'E-commerce', desc: 'Online store' }
+    { id: 'business', name: 'Basic', desc: 'Corporate or company website' },
+    { id: 'portfolio', name: 'Premium', desc: 'Showcase your work' },
+    { id: 'blog', name: 'Pro', desc: 'Share your thoughts and stories' },
+    { id: 'ecommerce', name: 'Partner', desc: 'Online store' }
   ];
 
   const templates = [
