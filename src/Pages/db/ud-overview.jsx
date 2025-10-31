@@ -21,7 +21,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     { icon: Image, label: 'Eco Mode', active: false },
     { icon: Settings, label: 'Settings', active: false },
   ];
-
+ 
   return (
     <>
       {/* Sidebar Container */}
@@ -120,7 +120,11 @@ const BudgetTracker = () => {
           <p className="text-sm text-amber-700">Track expenses across all categories</p>
         </div>
         <div className="flex items-center space-x-3">
-          <button className="p-2 hover:bg-amber-50 rounded-lg transition-colors">
+          <button 
+            className="p-2 hover:bg-amber-50 rounded-lg transition-colors" 
+            onClick={() => window.location.href = "./ud-budget"}
+            title="Edit Budget"
+          >
             <Edit2 className="w-5 h-5 text-amber-700" />
           </button>
           <span className="text-2xl font-bold text-amber-900" style={{ fontFamily: "'IM Fell English SC', serif" }}>LKR {budget.toLocaleString()}</span>

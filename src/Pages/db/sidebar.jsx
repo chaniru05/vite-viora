@@ -1,20 +1,24 @@
+// src/components/sidebarcomp.jsx
+import React from 'react';
+import { 
+  Bell, Mail, Users, CheckSquare, Calendar, LayoutDashboard, Home, Settings, LogOut, Heart, ChevronRight, DollarSign, Gift, Music
+} from 'lucide-react';
+
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const menuItems = [
-    { icon: Home, label: 'View Web Page', active: false },
-    { icon: LayoutDashboard, label: 'Overview', active: true },
-    { icon: Calendar, label: 'Web Settings', active: false },
-    { icon: Users, label: 'Budget Plan', active: false },
-    { icon: Mail, label: 'Digitalize', active: false },
-    { icon: DollarSign, label: 'AI & AR Assist', active: false },
-    { icon: Gift, label: 'Tasks Manager', active: false },
-    { icon: Music, label: 'Wedding Plan', active: false },
-    { icon: Image, label: 'Eco Mode', active: false },
-    { icon: Settings, label: 'Settings', active: false },
+    { icon: Home, label: 'View Web Page', active: false, path: '/' },
+    { icon: LayoutDashboard, label: 'Overview', active: true, path: '/' },
+    { icon: Calendar, label: 'Web Settings', active: false, path: '/websetup' },
+    { icon: Users, label: 'Budget Plan', active: false, path: '/budget' },
+    { icon: Mail, label: 'Digitalize', active: false, path: '/Digitalize' },
+    { icon: DollarSign, label: 'AI & AR Assist', active: false, path: '/AIAR' },
+    { icon: Gift, label: 'Tasks Manager', active: false, path: '/tasks' },
+    { icon: Music, label: 'Wedding PLan', active: false, path: '/planwed' },
+    { icon: Settings, label: 'Settings', active: false, path: '/' },
   ];
 
   return (
     <>
-      {/* Sidebar Container */}
       <div
         className={`mt-20 fixed left-0 top-0 h-full bg-white shadow-2xl transition-all duration-300 ease-in-out z-50 border-r border-amber-100 ${
           isOpen ? 'w-64' : 'w-20'
@@ -22,7 +26,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
       >
-        {/* Logo Section */}
         <div className="flex items-center justify-between p-4 border-b border-amber-100">
           <div className="flex items-center space-x-3">
             <div className="bg-gradient-to-br from-amber-500 to-amber-700 p-2 rounded-lg shadow-md">
@@ -36,7 +39,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           </div>
         </div>
 
-        {/* Menu Items */}
         <nav className="mt-6 px-2">
           {menuItems.map((item, index) => (
             <button
@@ -48,17 +50,12 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               }`}
             >
               <item.icon className="w-5 h-5 flex-shrink-0" />
-              {isOpen && (
-                <span className="font-medium text-sm">{item.label}</span>
-              )}
-              {isOpen && item.active && (
-                <ChevronRight className="w-4 h-4 ml-auto" />
-              )}
+              {isOpen && <span className="font-medium text-sm">{item.label}</span>}
+              {isOpen && item.active && <ChevronRight className="w-4 h-4 ml-auto" />}
             </button>
           ))}
         </nav>
 
-        {/* Logout Button */}
         <div className="absolute bottom-4 left-0 right-0 px-2">
           <button className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-red-700 hover:bg-red-50 transition-all duration-300 border border-red-200 hover:border-red-300">
             <LogOut className="w-5 h-5 flex-shrink-0" />
@@ -67,7 +64,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         </div>
       </div>
 
-      {/* Overlay for mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
@@ -77,3 +73,5 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     </>
   );
 };
+
+export default Sidebar;

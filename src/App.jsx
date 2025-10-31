@@ -8,6 +8,8 @@ import Home from './Pages/Home';
 import AboutUs from './Pages/AboutUs';
 import Vendors from './Pages/Vendors';
 import Dashboard from './Pages/db/ud-overview';
+import Dashboardb from './Pages/db/ud-budget';
+
 
 // Wrap Routes in a separate component so we can use useLocation
 function AppContent() {
@@ -39,6 +41,7 @@ function AppContent() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/vendors" element={<Vendors />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboardb" element={<Dashboardb />} />
         <Route path="*" element={<Home />} />
       </Routes>
 
