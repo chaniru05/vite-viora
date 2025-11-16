@@ -16,7 +16,6 @@ export default function WeddingNavbar() {
     { name: 'Home', path: '/' },
     { name: 'Vendors', path: '/vendors' },
     { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Web setup', path: '/webset' },
     { name: 'About Us', path: '/about' },
   ]
 
