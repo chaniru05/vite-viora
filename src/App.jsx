@@ -8,7 +8,7 @@ import Home from './Pages/Home';
 import AboutUs from './Pages/AboutUs';
 import Vendors from './Pages/Vendors';
 import Dashboardb from './Pages/db/ud-budget';
-
+import Aibot from './components/aichatbot';
 
 
 // Wrap Routes in a separate component so we can use useLocation
@@ -34,6 +34,8 @@ function AppContent() {
 
       {/* Navbar always visible */}
       <Nav />
+
+      <Aibot />
 
       {/* Main route content */}
       <Routes>
