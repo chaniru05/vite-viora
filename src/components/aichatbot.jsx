@@ -4,7 +4,7 @@ import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 export default function VioraaAIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: 'Hi! I\'m Vioraa AI, your wedding and event planning assistant. How can I help make your special day perfect?' }
+    { role: 'assistant', content: 'Hi! I\'m Vioraa AI, your wedding planning assistant. How can I help make your special day perfect?' }
   ]);
   
   // 🔑 PASTE YOUR GOOGLE AI STUDIO API KEY HERE
@@ -80,7 +80,7 @@ Keep responses helpful, warm, and enthusiastic about celebrating love and specia
       } else {
         setMessages(prev => [...prev, { 
           role: 'assistant', 
-          content: 'Sorry, I couldn\'t process that. Please make sure you\'ve added your Google AI Studio API key in the code where it says "YOUR_API_KEY_HERE".' 
+          content: 'Under Development....' 
         }]);
       }
     } catch (error) {
@@ -117,7 +117,7 @@ Keep responses helpful, warm, and enthusiastic about celebrating love and specia
               </div>
               <div>
                 <h3 className="font-semibold text-lg">Vioraa AI</h3>
-                <p className="text-xs text-purple-100">Wedding & Event Planning</p>
+                <p className="text-xs text-purple-100">Wedding Planning</p>
               </div>
             </div>
             <button
